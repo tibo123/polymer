@@ -1,0 +1,62 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>resume-exp-element Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <!-- <link rel="stylesheet" href="app.css"> -->
+    <link rel="import" href="../resume-exp-element.html">
+  </head>
+  <body>
+
+    <p>An example of <code>&lt;resume-exp-element&gt;</code>:</p>
+
+
+<!--         <div class="content flex-container-column-nowrap">
+                    <div class="list">
+                        <div class="list-element">
+                            <input type="checkbox" checked>
+                            <i></i> -->
+
+    <resume-exp-element job='{"role":"senior developer","companyName":"VOO","startdate":"2014-01-02","enddate":"2015-12-31","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","tasks":["Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat","Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur","Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"]}'>
+    </resume-exp-element>
+
+<!--                         </div>
+                        <div class="list-element">
+                            <input type="checkbox" checked>
+                            <i></i> -->
+
+    <resume-exp-element job='{"role":"senior developer","companyName":"Canal +","startdate":"2014-01-02","enddate":"2015-12-31","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","tasks":["Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat","Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur","Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"]}'>
+    </resume-exp-element>
+
+
+<resume-exp-element>
+</resume-exp-element>
+<!--                         </div>
+                    </div>
+        </div> -->
+    <script>
+      document.querySelector('button').addEventListener('click', function() {
+        alert(document.querySelector('resume-exp-element').sayHello('Hallo!'));
+      });
+    </script>
+
+  </body>
+</html>
+
+
+<!--     <resume-exp-element job='{"role":"senior developer","companyName":"Canal +","startdate":"2014-01-02","enddate":"2015-12-31","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","tasks":["task":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat","task":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur","task":"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"]}' fancy> -->
+    
+<!-- <resume-exp-element job='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy> -->
+
+    <!-- <resume-exp-element job='{"role":"senior developer","companyName":"Canal +","startdate":"2014-01-02","enddate":"2015-12-31","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","tasks":["Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat","Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur","Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"]}' fancy> -->

@@ -1,0 +1,158 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <resume-exp-element></resume-exp-element>
+
+@demo
+-->
+<dom-module id="resume-exp-element">
+
+  <style>
+    /*:host {
+      display: block;
+      box-sizing: border-box;
+    
+      position: relative;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 5px;
+      padding-top: 9px;
+      padding-left: 4px;
+      border-top: 1px dotted $shadow;
+      border-left: 4px solid $purple;
+    }*/
+    .section-experience-title > time.start {
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+    /* line 7, ../module/_section.scss */
+    .section-experience-title > time.start:before {
+      content: "from ";
+    }
+    /* line 11, ../module/_section.scss */
+    .section-experience-title > time.end {
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+    /* line 15, ../module/_section.scss */
+    .section-experience-title > time.end:before {
+      content: "to ";
+    }
+  </style>
+
+  <template>
+    <div class="section-experience-title">
+        <h4>{{job.role}} - {{job.company}}</h4>
+        <time class="start" datetime="{{startdate}}">{{job.startdate}}</time>
+        <time class="end" datetime="{{enddate}}">{{job.enddate}}</time>
+    </div>
+    <div id="content">
+      <p>{{job.description}}</p>
+      <ul>
+        <template is="dom-repeat" items="{{job.tasks}}">
+          <li>{{item}}</li>
+        </template>
+      </ul>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'resume-exp-element',
+
+    properties: {
+      job: {
+        type: Object,
+        value: function() {
+          return {
+            role: 'Developer',
+            company: 'CompanyName',
+            startdate: '2014-01-02',
+            enddate: '2015-12-31',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            tasks: ["task 1","task 2"],
+          };
+        }
+      },
+
+    },
+
+    // Element Lifecycle
+
+    ready: function() {
+      // `ready` is called after all elements have been configured, but
+      // propagates bottom-up. This element's children are ready, but parents
+      // are not.
+      //
+      // This is the point where you should make modifications to the DOM (when
+      // necessary), or kick off any processes the element wants to perform.
+    },
+
+    attached: function() {
+      // `attached` fires once the element and its parents have been inserted
+      // into a document.
+      //
+      // This is a good place to perform any work related to your element's
+      // visual state or active behavior (measuring sizes, beginning animations,
+      // loading resources, etc).
+    },
+
+    detached: function() {
+      // The analog to `attached`, `detached` fires when the element has been
+      // removed from a document.
+      //
+      // Use this to clean up anything you did in `attached`.
+    },
+
+    // Element Behavior
+
+    /**
+     * The `resume-exp-element-lasers` event is fired whenever `fireLasers` is called.
+     *
+     * @event resume-exp-element-lasers
+     * @detail {{sound: String}}
+     */
+
+    /**
+     * Sometimes it's just nice to say hi.
+     *
+     * @param {string} greeting A positive greeting.
+     * @return {string} The full greeting.
+     */
+    sayHello: function(greeting) {
+      var response = greeting || 'Hello World!';
+      return 'resume-exp-element says, ' + response;
+    },
+
+    /**
+     * Attempts to destroy this element's enemies with an any beam of light!
+     *
+     * Or, at least, dispatches an event in the vain hope that someone else will
+     * do the zapping.
+     */
+    fireLasers: function() {
+      this.fire('resume-exp-element-lasers', {sound: 'Pew pew!'});
+    }
+
+  });
+
+</script>
