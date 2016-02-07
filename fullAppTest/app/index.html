@@ -88,6 +88,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
           </a>
+
+          <a data-route="resume" href="{{baseUrl}}resume">
+            <iron-icon icon="resume"></iron-icon>
+            <span>Resume</span>
+          </a>
+
+          <a data-route="test" href="{{baseUrl}}test">
+            <iron-icon icon="test"></iron-icon>
+            <span>Test</span>
+          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -175,6 +185,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>This is the contact section</p>
               </paper-material>
             </section>
+
+            <section data-route="resume">
+              <paper-material elevation="1">
+                <h2 class="page-title">Resume</h2>
+                <p>Resume will goes here</p>
+                <resume-jobs  job='{"role":"senior developer","company":"VOO","startdate":"2014-01-02","enddate":"2015-12-31","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","tasks":[{"task":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"},{"task":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"},{"task":"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"}]}'></resume-jobs>
+              </paper-material>
+            </section>
+
+            <section data-route="test">
+              <paper-material elevation="1">
+                <h2 class="page-title">Test</h2>
+                <resume-page></resume-page>
+              </paper-material>
+            </section>
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
@@ -203,7 +228,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     -->
 
   </template>
-
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->

@@ -1,0 +1,49 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../resume-jobs/resume-jobs.html">
+<link rel="import" href="../resume-skills/resume-skills.html">
+
+<dom-module id="resume-page">
+  <style>
+    :host {
+      display: block;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <template>
+      <iron-ajax auto url="../../json/resume.json" handle-as="json" last-response="{{data}}"></iron-ajax>
+      <div>
+        <span>[[data.info]]</span>
+        <template is="dom-repeat" items="[[data.jobs]]" as="job">
+          <resume-jobs job='{{job}}' id='{{index}}'></resume-jobs>
+        </template>
+      </div>
+      <div>
+        <template is="dom-repeat" items="[[data.skills]]" as="category">
+          <resume-skills category='{{category}}'></resume-skills>
+        </template>
+      </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'resume-page',
+        tasksLoaded: function (data) {
+            console.log(data);
+            console.log(data.detail);
+            console.log(data.detail.response);
+        }
+  });
+</script>

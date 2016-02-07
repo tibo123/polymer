@@ -7,68 +7,69 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
 
-<!--
-An element providing a solution to no problem in particular.
-
-Example:
-
-    <resume-exp-element></resume-exp-element>
-
-@demo
--->
-<dom-module id="resume-exp-element">
-
+<dom-module id="resume-jobs">
   <style>
-    /*:host {
+    :host {
       display: block;
       box-sizing: border-box;
-    
-      position: relative;
-      padding: 0;
+    }
+    h4{
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+    .title{
+      width: 100%;
+      text-align: left;
       margin: 0;
-      margin-bottom: 5px;
-      padding-top: 9px;
-      padding-left: 4px;
-      border-top: 1px dotted $shadow;
-      border-left: 4px solid $purple;
-    }*/
-    .section-experience-title > time.start {
+      @apply(--layout-horizontal);
+      @apply(--layout-wrap);
+    }
+    time.start {
       font-weight: 700;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.54);
     }
-    /* line 7, ../module/_section.scss */
-    .section-experience-title > time.start:before {
+    time.start:before {
       content: "from ";
     }
-    /* line 11, ../module/_section.scss */
-    .section-experience-title > time.end {
+    time.end {
       font-weight: 700;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.54);
     }
-    /* line 15, ../module/_section.scss */
-    .section-experience-title > time.end:before {
+    time.end:before {
       content: "to ";
     }
   </style>
 
   <template>
-    <div class="section-experience-title">
-        <h4>{{job.role}} - {{job.company}}</h4>
-        <time class="start" datetime="{{startdate}}">{{job.startdate}}</time>
-        <time class="end" datetime="{{enddate}}">{{job.enddate}}</time>
-    </div>
-    <div id="content">
-      <p>{{job.description}}</p>
-      <ul>
-        <template is="dom-repeat" items="{{job.tasks}}">
-          <li>{{item}}</li>
-        </template>
-      </ul>
-    </div>
+      <div class="element">
+        <div on-click="toggle">
+          <div class="title">
+            <h4>{{job.role}} - {{job.company}}</h4>
+            <div>
+              <time class="start" datetime="{{startdate}}">{{job.startdate}}</time>
+              <time class="end" datetime="{{enddate}}">{{job.enddate}}</time>
+            </div>
+          <iron-icon icon="icons:expand-more"></iron-icon>
+          </div>
+        </div>
+        <iron-collapse tabindex="0">
+          <div class="collapsible-content">
+            <p>{{job.description}}</p>
+            <ul>
+              <template is="dom-repeat" items="{{job.tasks}}">
+                <li>{{item.task}}</li>
+              </template>
+            </ul>
+          </div>
+        </iron-collapse>
+      </div>
   </template>
 
 </dom-module>
@@ -76,10 +77,12 @@ Example:
 <script>
 
   Polymer({
-
-    is: 'resume-exp-element',
-
+    is: 'resume-jobs',
     properties: {
+      id: {
+        type: Number,
+        value: 0
+      },
       job: {
         type: Object,
         value: function() {
@@ -89,11 +92,20 @@ Example:
             startdate: '2014-01-02',
             enddate: '2015-12-31',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            tasks: ["task 1","task 2"],
+            tasks: {
+              type: Object,
+              value: function() {
+                task: 'one task'
+              }
+            },
           };
         }
-      },
-
+      }
+    },
+    toggle: function(e) {
+      this.$$('iron-icon').icon = (this.$$('iron-icon').icon == 'icons:expand-more' ? 'icons:expand-less' : 'icons:expand-more');
+      console.log(this.$$('iron-icon').icon);
+      this.$$('iron-collapse').toggle();
     },
 
     // Element Lifecycle
@@ -114,6 +126,7 @@ Example:
       // This is a good place to perform any work related to your element's
       // visual state or active behavior (measuring sizes, beginning animations,
       // loading resources, etc).
+      // alert('attached');
     },
 
     detached: function() {
@@ -121,38 +134,6 @@ Example:
       // removed from a document.
       //
       // Use this to clean up anything you did in `attached`.
-    },
-
-    // Element Behavior
-
-    /**
-     * The `resume-exp-element-lasers` event is fired whenever `fireLasers` is called.
-     *
-     * @event resume-exp-element-lasers
-     * @detail {{sound: String}}
-     */
-
-    /**
-     * Sometimes it's just nice to say hi.
-     *
-     * @param {string} greeting A positive greeting.
-     * @return {string} The full greeting.
-     */
-    sayHello: function(greeting) {
-      var response = greeting || 'Hello World!';
-      return 'resume-exp-element says, ' + response;
-    },
-
-    /**
-     * Attempts to destroy this element's enemies with an any beam of light!
-     *
-     * Or, at least, dispatches an event in the vain hope that someone else will
-     * do the zapping.
-     */
-    fireLasers: function() {
-      this.fire('resume-exp-element-lasers', {sound: 'Pew pew!'});
     }
-
   });
-
 </script>

@@ -1,0 +1,109 @@
+{
+  "info": "CV",
+  "jobs": [{
+    "role": "senior developer",
+    "company": "VOO",
+    "startdate": "2014-01-02",
+    "enddate": "2015-12-31",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "tasks": [{
+      "task": "task 1 : one"
+    }, {
+      "task": "task 2 : two"
+    }, {
+      "task": "task 3 : three"
+    }]
+  }, {
+    "role": "senior developer",
+    "company": "Canal +",
+    "startdate": "2014-01-02",
+    "enddate": "2015-12-31",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "tasks": [{
+      "task": "task 1 : Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+    }, {
+      "task": "task 2 : Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+    }, {
+      "task": "task 3 : Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    }]
+  }],
+  "skills": [{
+    "group":"Frontend",
+    "list": [{
+      "name":"html5",
+      "url": ""
+    },{
+      "name":"CSS / Sass",
+      "url": ""
+    },{
+      "name":"polymer",
+      "url": ""
+    },{
+      "name":"GWT / GXT",
+      "url": ""
+    },{
+      "name":"Grunt",
+      "url": ""
+    },{
+      "name":"Bower",
+      "url": ""
+    }]
+  }, {
+    "group":"Backend",
+    "list": [{
+      "name":"JEE",
+      "url": ""
+    },{
+      "name":"Camel",
+      "url": ""
+    },{
+      "name":"OSGi",
+      "url": ""
+    },{
+      "name":"SOAP",
+      "url": ""
+    },{
+      "name":"REST",
+      "url": ""
+    },{
+      "name":"jms",
+      "url": ""
+    },{
+      "name":"Spring",
+      "url": ""
+    },{
+      "name":"SpringBoot",
+      "url": ""
+    },{
+      "name":"JPA",
+      "url": ""
+    }]
+  }, {
+    "group":"Continuous integration",
+    "list": [{
+      "name":"Maven",
+      "url": ""
+    },{
+      "name":"jenkins",
+      "url": ""
+    },{
+      "name":"nexus",
+      "url": ""
+    },{
+      "name":"svn",
+      "url": ""
+    },{
+      "name":"git",
+      "url": ""
+    }]
+  }, {
+    "group":"Servers",
+    "list": [{
+      "name":"Tomcat",
+      "url": ""
+    },{
+      "name":"Karaf",
+      "url": ""
+    }]
+  }]
+}
